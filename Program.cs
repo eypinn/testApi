@@ -8,3 +8,4 @@ var app = builder.Build();
 app.MapGet("/api/cities", (CityService service) => Results.Ok(service.GetTurkishCities()));
 app.MapGet("/", () => Results.Ok(new { service = "CityProviderApi", endpoint = "/api/cities" }));
 app.Run();
+
