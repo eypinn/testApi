@@ -6,18 +6,12 @@ namespace CityProviderApi.Controllers;
 
 [ApiController]
 [Route("api/cities")]
-public sealed class CitiesController : ControllerBase
+public sealed class CitiesController(CityService cityService) : ControllerBase
 {
-    private readonly CityService _cityService;
-
-    public CitiesController(CityService cityService)
-    {
-        _cityService = cityService;
-    }
-
     [HttpGet]
-    public ActionResult<IReadOnlyList<City>> GetCities()
+    public async Task<ActionResult<IReadOnlyList<City>>> GetCities(CancellationToken cancellationToken)
     {
-        return Ok(_cityService.GetTurkishCities());
+        var cities = await cityService.GetTurkishCitiesAsync(cancellationToken);
+        return Ok(cities);
     }
 }
