@@ -6,7 +6,7 @@ namespace CityProviderApi.Data;
 public sealed class CityDbContext(DbContextOptions<CityDbContext> options) : DbContext(options)
 {
     public DbSet<Cities> Cities => Set<Cities>();
-    public DbSet<CitiesVw> CitiesView => Set<CitiesVw>();
+    public DbSet<CitiesVw> CitiesVw => Set<CitiesVw>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
