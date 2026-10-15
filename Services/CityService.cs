@@ -12,7 +12,7 @@ public sealed class CityService(CityDbContext dbContext)
             .AsNoTracking()
             .Where(city => city.CountryCode == "TR")
             .OrderBy(city => city.Name)
-            .Select(city => new City(city.Name, city.CountryCode, city.Population, city.AreaKm2))
+
             .ToListAsync(cancellationToken);
     }
 }

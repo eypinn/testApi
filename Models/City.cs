@@ -1,3 +1,10 @@
 namespace CityProviderApi.Models;
 
-public sealed record City(string Name, string CountryCode, int Population, double AreaKm2);
+public sealed class City
+{
+    public int Id { get; set; }
+    public string Name { get; set; } = string.Empty;
+    public string CountryCode { get; set; } = string.Empty;
+    public int Population { get; set; }
+    public double AreaKm2 { get; set; }
+}
