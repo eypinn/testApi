@@ -4,13 +4,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CityProviderApi.Services;
 
-public sealed class CityService(CityDbContext _context)
+public sealed class CityService(CityDbContext context)
 {
-    public async Task<List<CitiesVw>> GetTurkishCitiesAsync()
-{
-    return await _context.CitiesView
-        .AsNoTracking()
-        .Where(x => x.CountryCode == "TR")
-        .ToListAsync();
-}
+    public async Task<List<CitiesVw>> GetTurkishCitiesAsync(CancellationToken cancellationToken = default)
+    {
+        return await context.CitiesVw
+            .AsNoTracking()
+            .Where(x => x.CountryCode == "TR")
+            .OrderBy(x => x.Name)
+            .ToListAsync(cancellationToken);
+    }
 }

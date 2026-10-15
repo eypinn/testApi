@@ -17,6 +17,7 @@ if (string.IsNullOrWhiteSpace(connectionString))
 builder.Services.AddDbContext<CityDbContext>(options =>
     options.UseSqlServer(connectionString, sql => sql.EnableRetryOnFailure()));
 builder.Services.AddScoped<CityService>();
+builder.Services.AddScoped<CityExceptionService>();
 
 var app = builder.Build();
 app.MapControllers();
