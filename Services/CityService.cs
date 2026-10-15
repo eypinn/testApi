@@ -6,7 +6,7 @@ namespace CityProviderApi.Services;
 
 public sealed class CityService(CityDbContext dbContext)
 {
-    public async Task<IReadOnlyList<City>> GetTurkishCitiesAsync(CancellationToken cancellationToken = default)
+    public async Task<IReadOnlyList<Cities>> GetTurkishCitiesAsync(CancellationToken cancellationToken = default)
     {
         return await dbContext.Cities
             .AsNoTracking()

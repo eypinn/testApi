@@ -1,6 +1,6 @@
 namespace CityProviderApi.Models;
 
-public sealed class City
+public sealed class Cities
 {
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;

@@ -5,11 +5,11 @@ namespace CityProviderApi.Data;
 
 public sealed class CityDbContext(DbContextOptions<CityDbContext> options) : DbContext(options)
 {
-    public DbSet<City> Cities => Set<City>();
+    public DbSet<Cities> Cities => Set<Cities>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<City>(entity =>
+        modelBuilder.Entity<Cities>(entity =>
         {
             entity.ToTable("Cities", "dbo");
             entity.HasKey(city => city.Id);

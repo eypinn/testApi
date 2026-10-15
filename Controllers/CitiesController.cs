@@ -9,7 +9,7 @@ namespace CityProviderApi.Controllers;
 public sealed class CitiesController(CityService cityService) : ControllerBase
 {
     [HttpGet]
-    public async Task<ActionResult<IReadOnlyList<City>>> GetCities(CancellationToken cancellationToken)
+    public async Task<ActionResult<IReadOnlyList<Cities>>> GetCities(CancellationToken cancellationToken)
     {
         var cities = await cityService.GetTurkishCitiesAsync(cancellationToken);
         return Ok(cities);
